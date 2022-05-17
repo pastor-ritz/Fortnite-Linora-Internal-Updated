@@ -1,6 +1,7 @@
 # Fortnite-Linora-Internal-Updated
-# Fortnite-Bulletp-Internal - Updated to Chapter 3
-
+> Injector
+ - Working injector on all winvers is included, check the release folder
+ 
 Make sure project is set on Release X64 and DirectX11 sdk is installed, give star if you guys wants car teleport
 
 Added FOV Changer!
