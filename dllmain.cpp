@@ -5,12 +5,6 @@
 typedef int (WINAPI* LPFN_MBA)(DWORD);
 static LPFN_MBA NiggerKeyState;
 
-// ye ye feel free to paste
-// Updated to Chapter 3
-// Added Better SpeedHack
-// Added Better SilentAim and Bulletp
-// Added FOVChanger
-// Adding Carfly and teleport and more soon
 
 bool ShowMenu = true;
 
