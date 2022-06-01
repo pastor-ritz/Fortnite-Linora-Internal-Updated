@@ -1201,51 +1201,6 @@ void hk_GetViewPoint(uintptr_t this_LocalPlayer, FMinimalViewInfo* OutViewInfo, 
 	}
 }
 
-void(*o_GetPlayerViewPoint)(uintptr_t, Vector3*, Vector3*) = nullptr;
-void hk_GetPlayerViewPoint(uintptr_t this_PlayerController, Vector3* Location, Vector3* Rotation) {
-	o_GetPlayerViewPoint(this_PlayerController, Location, Rotation);
-
-	o_CamLoc = *Location;
-
-	OriginalLocation = *Location;
-	OriginalRotation = *Rotation;
-
-
-
-	if (valid_pointer(LocalPawn))
-	{
-		o_CamLoc = *Location;
-
-		OriginalLocation = *Location;
-		OriginalRotation = *Rotation;
-		//MessageBox(0, L"1", 0, 0);
-	
-
-			if (Settings::SilentAim)
-			{
-				if (GetAsyncKeyState(VK_RBUTTON))
-				{
-					Vector3 rootHead;
-					SDK::Classes::USkeletalMeshComponent::GetBoneLocation(TargetPawn, 98, &rootHead);;
-					Vector3 camloc = *Location;
-					Vector3 VectorPos;
-					VectorPos.x = rootHead.x - camloc.x;
-					VectorPos.y = rootHead.y - camloc.y;
-					VectorPos.z = rootHead.z - camloc.z;
-					float distance = (double)(sqrtf(VectorPos.x * VectorPos.x + VectorPos.y * VectorPos.y + VectorPos.z * VectorPos.z));
-					Vector3 rot;
-					rot.x = -((acosf(VectorPos.z / distance) * (float)(180.0f / 3.14159265358979323846264338327950288419716939937510)) - 90.f);
-					rot.y = atan2f(VectorPos.y, VectorPos.x) * (float)(180.0f / 3.14159265358979323846264338327950288419716939937510);
-					rot.z = 0;
-					*Rotation = rot;
-				}
-			}
-		
-			
-		
-
-	}
-}
 
 void ColorAndStyle() {
 	ImGuiStyle* style = &ImGui::GetStyle();
